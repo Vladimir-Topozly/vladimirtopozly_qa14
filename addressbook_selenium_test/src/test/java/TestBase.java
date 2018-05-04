@@ -63,6 +63,14 @@ public class TestBase {
         driver.get("http://localhost/addressbook/");
     }
 
+    public void selectGroup() {
+        driver.findElement(By.name("selected[]")).click();
+    }
+
+    public void deleteGroup() {
+        driver.findElement(By.name("delete")).click();
+    }
+
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
