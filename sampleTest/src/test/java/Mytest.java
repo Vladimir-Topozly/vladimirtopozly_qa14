@@ -3,6 +3,7 @@ import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
@@ -14,6 +15,7 @@ public class Mytest {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
+    //driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));  //specifically for the firefox esr
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
