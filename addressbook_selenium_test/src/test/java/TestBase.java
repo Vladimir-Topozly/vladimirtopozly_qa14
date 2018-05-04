@@ -15,6 +15,8 @@ public class TestBase {
     public void setUp() throws Exception {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        openAddressBook();
+        login();
     }
 
     public void returnToTheGroupPage() {
