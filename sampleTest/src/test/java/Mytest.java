@@ -1,5 +1,4 @@
 
-
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -10,23 +9,23 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class FirstClass {
+public class Mytest {
   private WebDriver driver;
-
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
     driver = new ChromeDriver();
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   @Test
-  public void searchWebDriverInChrome() throws Exception {
+  public void openIBMHomePageInChrome() throws Exception {
     driver.get("https://www.google.com/");
     driver.findElement(By.id("lst-ib")).click();
     driver.findElement(By.id("lst-ib")).clear();
-    driver.findElement(By.id("lst-ib")).sendKeys("webDriver");
+    driver.findElement(By.id("lst-ib")).sendKeys("ibm israel");
     driver.findElement(By.id("lst-ib")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("vn1s0p1c0")).click();
   }
 
   @AfterClass(alwaysRun = true)
