@@ -82,10 +82,12 @@ public class AddressBookTestBase {
     //TODO:
     public void selectAddressBook() {
         driver.findElement(By.name("selected[]")).click();
+        driver.switchTo().alert().dismiss();
     }
 //TODO:
     public void deleteAddressBook() {
         driver.findElement(By.xpath("//input[@value='Delete']")).click();
+
     }
 
     @AfterClass(alwaysRun = true)

@@ -22,7 +22,7 @@ public class AddressBookCreationTest extends AddressBookTestBase {
         returnToHomePage();
         System.out.println("testAddressBookCreationShortName() passed");
     }
-    @Test(priority = 1, enabled = false)
+    @Test(priority = 1, enabled = true)
     public void testAddressBookCreationEmpty() {
         addNewAddressBook();
         fillAddressBook("", "", "",
