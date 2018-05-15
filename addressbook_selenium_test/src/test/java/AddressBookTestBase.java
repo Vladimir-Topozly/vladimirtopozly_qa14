@@ -1,6 +1,7 @@
-package com.tr.example;
-
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -80,8 +81,7 @@ public class AddressBookTestBase {
     }
     //TODO:
     public void selectAddressBook() {
-        WebElement element = driver.findElement(By.name("selected[]"));
-        element.click();
+        driver.findElement(By.name("selected[]")).click();
         driver.switchTo().alert().dismiss();
     }
 //TODO:

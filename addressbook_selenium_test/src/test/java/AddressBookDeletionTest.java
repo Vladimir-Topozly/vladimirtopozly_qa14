@@ -1,5 +1,3 @@
-package com.tr.example;
-
 import org.testng.annotations.Test;
 
 public class AddressBookDeletionTest extends AddressBookTestBase {

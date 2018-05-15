@@ -1,16 +1,8 @@
-package com.tr.example;
-
 import org.testng.annotations.Test;
 
 public class AddressBookCreationTest extends AddressBookTestBase {
 
-    @Test
-    public void createContactTest(){
-
-
-    }
-
-    @Test(priority = 3, enabled = false)
+    @Test(priority = 3)
     public void testAddressBookCreationLongName() {
         addNewAddressBook();
         fillAddressBook("Long_name", "Long_lastname", "long_title_1",
@@ -20,7 +12,7 @@ public class AddressBookCreationTest extends AddressBookTestBase {
         returnToHomePage();
         System.out.println("testAddressBookCreationLongName() passed");
     }
-    @Test(priority = 2, enabled = false)
+    @Test(priority = 2)
     public void testAddressBookCreationShortName() {
         addNewAddressBook();
         fillAddressBook("name", "lastname", "title1",
@@ -30,7 +22,7 @@ public class AddressBookCreationTest extends AddressBookTestBase {
         returnToHomePage();
         System.out.println("testAddressBookCreationShortName() passed");
     }
-    @Test(priority = 1, enabled = false)
+    @Test(priority = 1, enabled = true)
     public void testAddressBookCreationEmpty() {
         addNewAddressBook();
         fillAddressBook("", "", "",
