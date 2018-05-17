@@ -1,12 +1,12 @@
 import org.testng.annotations.Test;
 
-public class AddressBookDeletionTest extends AddressBookTestBase {
+public class AddressBookDeletionTest extends TestBase {
     @Test
-    public void testAddressBookDeletion(){
+    public void testAddressBookDeletion() {
         goToHomePage();
         selectAddressBook();
         deleteAddressBook();
-        returnToHomePage();
+        goToHomePage();
     }
 
 

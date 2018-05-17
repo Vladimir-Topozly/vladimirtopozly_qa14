@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
-
 import java.util.concurrent.TimeUnit;
 
 public class AddressBookTestBase {
@@ -82,12 +80,21 @@ public class AddressBookTestBase {
     //TODO:
     public void selectAddressBook() {
         driver.findElement(By.name("selected[]")).click();
-        driver.switchTo().alert().dismiss();
     }
+
+    public void editAddressBook(){
+        driver.findElement(By.xpath("//img[@alt='Edit']")).click();
+    }
+
+    public void updateChangesAddressBook(){
+        driver.findElement(By.xpath("(//input[@name='update'])[2]")).click();
+    }
+
+
 //TODO:
     public void deleteAddressBook() {
+        driver.switchTo().alert().dismiss();
         driver.findElement(By.xpath("//input[@value='Delete']")).click();
-
     }
 
     @AfterClass(alwaysRun = true)

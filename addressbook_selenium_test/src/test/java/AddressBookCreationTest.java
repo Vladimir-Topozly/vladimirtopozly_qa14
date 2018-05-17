@@ -1,6 +1,6 @@
 import org.testng.annotations.Test;
 
-public class AddressBookCreationTest extends AddressBookTestBase {
+public class AddressBookCreationTest extends TestBase {
 
     @Test(priority = 3)
     public void testAddressBookCreationLongName() {
