@@ -1,6 +1,5 @@
 package com.telran.addressbook.appManager;
 
-import com.telran.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,19 +9,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    private ContactsHelper contactsHelper;
+    private NavigationHelper navigationHelper;
     protected WebDriver driver;
     private GroupHelper groupHelper;
 
     public void start() {
+
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(driver);
+        contactsHelper = new ContactsHelper(driver);
+        navigationHelper = new NavigationHelper(driver);
+
         openAddressBook("http://localhost/addressbook/edit.php");
         login("admin", "secret");
-    }
-
-    public void goToGroupsPage() {
-        driver.findElement(By.linkText("groups")).click();
     }
 
     public void login(String user, String pwd) {
@@ -35,69 +36,8 @@ public class ApplicationManager {
         driver.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
-    public void returnToHomePage() {
-        driver.findElement(By.linkText("home page")).click();
-    }
-
-    public void submitContactCreation() {
-        driver.findElement(By.name("submit")).click();
-    }
-
-    public void fillContact(ContactData contactData) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-        driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-        driver.findElement(By.name("title")).click();
-        driver.findElement(By.name("title")).clear();
-        driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
-        driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(contactData.getCompanyAddress());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getPhone());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getEmail());
-        driver.findElement(By.name("address2")).click();
-        driver.findElement(By.name("address2")).clear();
-        driver.findElement(By.name("address2")).sendKeys(contactData.getAddress());
-    }
-
-    public void initContactCreation() {
-        driver.findElement(By.linkText("add new")).click();
-    }
-
-    public void selectContact() {
-        driver.findElement(By.name("selected[]")).click();
-    }
-
-    public void initContactModification() {
-        driver.findElement(By.xpath("//img[@alt='Edit']")).click();
-    }
-
-    public void submitContactModification() {
-        driver.findElement(By.xpath("(//input[@name='update'])[2]")).click();
-    }
-
-    public void deleteContact() {
-        driver.findElement(By.xpath("//input[@value='Delete']")).click();
-    }
-
     public void openAddressBook(String url) {
         driver.get(url);
-    }
-
-    public void goToHomePage() {
-        driver.findElement(By.linkText("home")).click();
     }
 
     public void stop() {
@@ -122,15 +62,15 @@ public class ApplicationManager {
         }
     }
 
-    public void acceptAlert() {
-        driver.switchTo().alert().accept(); // To click on the 'OK' button of the alert
-    }
-
-    public int GetContactCount() {
-        return driver.findElements(By.name("selected[]")).size();
-    }
-
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
+    }
+
+    public ContactsHelper getContactsHelper() {
+        return contactsHelper;
     }
 }

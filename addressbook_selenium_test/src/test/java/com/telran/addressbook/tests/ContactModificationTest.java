@@ -8,17 +8,17 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification() {
-        app.goToHomePage();
-        int before = app.GetContactCount();
-        app.selectContact();
-        app.initContactModification();
-        app.fillContact(
+        app.getNavigationHelper().goToHomePage();
+        int before = app.getContactsHelper().GetContactCount();
+        app.getContactsHelper().selectContact();
+        app.getContactsHelper().initContactModification();
+        app.getContactsHelper().fillContact(
                 new ContactData("EditedName", "EditedLastname", "Edited_long_title_1",
                         "Edited_company", "Edited_city", "Edited_phone",
                         "Edited_email", "Edited_Address"));
-        app.submitContactModification();
-        app.returnToHomePage();
-        int after = app.GetContactCount();
+        app.getContactsHelper().submitContactModification();
+        app.getContactsHelper().returnToHomePage();
+        int after = app.getContactsHelper().GetContactCount();
 
         Assert.assertEquals(after, before);
     }

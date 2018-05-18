@@ -6,13 +6,13 @@ import org.testng.annotations.Test;
 public class ContactDeletionTest extends TestBase {
     @Test
     public void testContactDeletion() {
-        app.goToHomePage();
-        int before = app.GetContactCount();
-        app.selectContact();
-        app.deleteContact();
-        app.acceptAlert();
-        app.goToHomePage();
-        int after = app.GetContactCount();
+        app.getNavigationHelper().goToHomePage();
+        int before = app.getContactsHelper().GetContactCount();
+        app.getContactsHelper().selectContact();
+        app.getContactsHelper().deleteContact();
+        app.getContactsHelper().acceptAlert();
+        app.getNavigationHelper().goToHomePage();
+        int after = app.getContactsHelper().GetContactCount();
 
         Assert.assertEquals(after, before-1);
     }
