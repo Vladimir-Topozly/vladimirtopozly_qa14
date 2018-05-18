@@ -1,5 +1,6 @@
-package com.telran.addressbook.model;
+package com.telran.addressbook.tests;
 
+import com.telran.addressbook.appManager.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -10,8 +11,6 @@ public class TestBase {
     @BeforeClass(alwaysRun = true)      //an annotation for TestHG framework
     public void setUp() {
         app.start();
-        app.openAddressBook("http://localhost/addressbook/edit.php");
-        app.login("admin", "secret");
     }
 
 

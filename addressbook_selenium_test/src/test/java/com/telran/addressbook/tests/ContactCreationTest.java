@@ -1,5 +1,6 @@
-package com.telran.addressbook.model;
+package com.telran.addressbook.tests;
 
+import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
