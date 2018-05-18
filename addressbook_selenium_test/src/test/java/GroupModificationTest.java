@@ -1,4 +1,4 @@
-import com.telran.addressbook.model.CroupData;
+import com.telran.addressbook.model.GroupData;
 import com.telran.addressbook.model.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,7 +10,7 @@ public class GroupModificationTest extends TestBase {
         int before = app.getGroupCount();
         app.selectGroup();
         app.initGroupModification();
-        app.fillGroupForm(new CroupData("modified_name", "modified_header", "modified_footer"));
+        app.fillGroupForm(new GroupData("modified_name", "modified_header", "modified_footer"));
         app.submitGroupModification();
         app.returnToGroupsPage();
         int after = app.getGroupCount();

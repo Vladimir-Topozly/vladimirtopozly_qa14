@@ -24,7 +24,7 @@ public class ApplicationManager {
         driver.findElement(By.name("submit")).click();
     }
 
-    public void fillGroupForm(CroupData croup) {
+    public void fillGroupForm(GroupData croup) {
         driver.findElement(By.name("group_name")).click();
         driver.findElement(By.name("group_name")).clear();
         driver.findElement(By.name("group_name")).sendKeys(croup.getName());
@@ -68,57 +68,56 @@ public class ApplicationManager {
         driver.findElement(By.linkText("home page")).click();
     }
 
-    public void submitAddressBookCreation() {
+    public void submitContactCreation() {
         driver.findElement(By.name("submit")).click();
     }
 
-    public void fillAddressBook(String test_name, String test_lastname, String test_title_1, String company,
-                                String company_address, String phone, String email, String address) {
+    public void fillContact(ContactData contactData) {
         driver.findElement(By.name("firstname")).click();
         driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(test_name);
+        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
         driver.findElement(By.name("lastname")).click();
         driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(test_lastname);
+        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
         driver.findElement(By.name("title")).click();
         driver.findElement(By.name("title")).clear();
-        driver.findElement(By.name("title")).sendKeys(test_title_1);
+        driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
         driver.findElement(By.name("company")).click();
         driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(company);
+        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
         driver.findElement(By.name("address")).click();
         driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(company_address);
+        driver.findElement(By.name("address")).sendKeys(contactData.getCompanyAddress());
         driver.findElement(By.name("home")).click();
         driver.findElement(By.name("mobile")).click();
         driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(phone);
+        driver.findElement(By.name("mobile")).sendKeys(contactData.getPhone());
         driver.findElement(By.name("home")).click();
         driver.findElement(By.name("mobile")).click();
         driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(email);
+        driver.findElement(By.name("mobile")).sendKeys(contactData.getEmail());
         driver.findElement(By.name("address2")).click();
         driver.findElement(By.name("address2")).clear();
-        driver.findElement(By.name("address2")).sendKeys(address);
+        driver.findElement(By.name("address2")).sendKeys(contactData.getAddress());
     }
 
-    public void initAddressBookCreation() {
+    public void initContactCreation() {
         driver.findElement(By.linkText("add new")).click();
     }
 
-    public void selectAddressBook() {
+    public void selectContact() {
         driver.findElement(By.name("selected[]")).click();
     }
 
-    public void initAddressBookModification() {
+    public void initContactModification() {
         driver.findElement(By.xpath("//img[@alt='Edit']")).click();
     }
 
-    public void submitAddressBookModification() {
+    public void submitContactModification() {
         driver.findElement(By.xpath("(//input[@name='update'])[2]")).click();
     }
 
-    public void deleteAddressBook() {
+    public void deleteContact() {
         driver.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 

@@ -1,11 +1,11 @@
 package com.telran.addressbook.model;
 
-public class CroupData {
+public class GroupData {
     private final String name;
     private final String header;
     private final String footer;
 
-    public CroupData(String name, String header, String footer) {
+    public GroupData(String name, String header, String footer) {
         this.name = name;
         this.header = header;
         this.footer = footer;

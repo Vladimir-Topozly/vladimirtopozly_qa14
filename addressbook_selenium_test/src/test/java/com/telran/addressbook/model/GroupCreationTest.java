@@ -10,7 +10,7 @@ public class GroupCreationTest extends TestBase {
         app.goToGroupsPage();
         int before = app.getGroupCount();
         app.initGroupCreation();
-        app.fillGroupForm(new CroupData("myName", "myHeader", "myFooter"));
+        app.fillGroupForm(new GroupData("myName", "myHeader", "myFooter"));
         app.submitGroupCreation();
         app.returnToGroupsPage();
         int after = app.getGroupCount();
@@ -24,7 +24,7 @@ public class GroupCreationTest extends TestBase {
         app.goToGroupsPage();
         int before = app.getGroupCount();
         app.initGroupCreation();
-        app.fillGroupForm(new CroupData("n1", "h1", "f1"));
+        app.fillGroupForm(new GroupData("n1", "h1", "f1"));
         app.submitGroupCreation();
         app.returnToGroupsPage();
         int after = app.getGroupCount();
@@ -37,7 +37,7 @@ public class GroupCreationTest extends TestBase {
         app.goToGroupsPage();
         int before = app.getGroupCount();
         app.initGroupCreation();
-        app.fillGroupForm(new CroupData("", "", ""));
+        app.fillGroupForm(new GroupData("", "", ""));
         app.submitGroupCreation();
         app.returnToGroupsPage();
         int after = app.getGroupCount();
