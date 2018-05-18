@@ -166,4 +166,8 @@ public class ApplicationManager {
     public void acceptAlert() {
         driver.switchTo().alert().accept(); // To click on the 'OK' button of the alert
     }
+
+    public int GetContactCount() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
 }
