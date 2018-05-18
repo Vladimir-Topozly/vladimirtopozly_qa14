@@ -4,11 +4,10 @@ import com.telran.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ContactsHelper {
-    private WebDriver driver;
+public class ContactsHelper extends HelperBase{
 
-    public ContactsHelper(WebDriver driver) {
-        this.driver = driver;
+    public ContactsHelper(WebDriver driver) { // constructor for the super class HelperBase
+        super(driver);
     }
 
     public void returnToHomePage() {
@@ -65,11 +64,7 @@ public class ContactsHelper {
     }
 
     public void deleteContact() {
-        driver.findElement(By.xpath("//input[@value='Delete']")).click();
-    }
-
-    public void acceptAlert() {
-        driver.switchTo().alert().accept(); // To click on the 'OK' button of the alert
+        click(By.xpath("//input[@value='Delete']"));
     }
 
     public int GetContactCount() {

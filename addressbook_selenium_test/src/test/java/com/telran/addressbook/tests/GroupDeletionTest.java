@@ -7,6 +7,11 @@ public class GroupDeletionTest extends TestBase {
     @Test
     public void testGroupDeletion() {
         app.getNavigationHelper().goToGroupsPage();
+
+        if(!app.getGroupHelper().isThereAGroup()){
+            app.getGroupHelper().createGroup();   // check precondition if group exists
+        }
+
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().deleteGroup();
