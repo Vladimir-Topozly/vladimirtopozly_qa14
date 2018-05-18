@@ -18,7 +18,7 @@ public class ApplicationManager {
     public void start() {
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(driver);
         contactsHelper = new ContactsHelper(driver);
         navigationHelper = new NavigationHelper(driver);

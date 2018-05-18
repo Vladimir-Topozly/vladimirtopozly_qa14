@@ -23,7 +23,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 2, enabled = true)
+    @Test(priority = 2)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -39,7 +39,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 1, enabled = true)
+    @Test(priority = 1)
     public void testContactCreationEmpty() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();

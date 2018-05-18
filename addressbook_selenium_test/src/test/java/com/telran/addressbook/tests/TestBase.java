@@ -2,19 +2,22 @@ package com.telran.addressbook.tests;
 
 import com.telran.addressbook.appManager.ApplicationManager;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager();
+    protected static ApplicationManager app = new ApplicationManager(); // make static in order to create more
+                                                                        // than one object of the ApplicationManager
 
-    @BeforeClass(alwaysRun = true)      //an annotation for TestHG framework
+    @BeforeSuite(alwaysRun = true)      //an annotation for TestHG framework
     public void setUp() {
         app.start();
     }
 
 
-    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         app.stop();
     }
