@@ -3,6 +3,10 @@ package com.telran.addressbook.appManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,12 +15,23 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
     private ContactsHelper contactsHelper;
     private NavigationHelper navigationHelper;
+    private String browser;     // variable to define which browser to use
+
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
 
 
     public void start() {
+        if (browser.equals(BrowserType.CHROME)) {
+            driver = new ChromeDriver();
+        } else if (browser.equals((BrowserType.FIREFOX))) {
+            driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+        } else if (browser.equals(BrowserType.IE)){ //TODO: add internet explorer driver to /opt/tools
+            driver  = new InternetExplorerDriver();
+        }
 
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // fluent interface- one methods calls another)
         groupHelper = new GroupHelper(driver);
         contactsHelper = new ContactsHelper(driver);
         navigationHelper = new NavigationHelper(driver);

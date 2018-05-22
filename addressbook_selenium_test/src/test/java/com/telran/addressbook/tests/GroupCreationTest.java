@@ -11,11 +11,16 @@ public class GroupCreationTest extends TestBase {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("myName", "myHeader", "myFooter"));
+
+        app.getGroupHelper().fillGroupForm(new GroupData() // using set methods from the GroupData class
+                .withName("myName")
+                .withHeader("myHeader")
+                .withFooter("myFooter"));
+
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationLongName() PASSED"); // will print only if the test passed
+        System.out.println("testGroupCreationLongName() PASSED"); // will be printed only if test passed
 
         Assert.assertEquals(after, before + 1);
     }
@@ -25,7 +30,12 @@ public class GroupCreationTest extends TestBase {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("n1", "h1", "f1"));
+
+        app.getGroupHelper().fillGroupForm(new GroupData()
+                .withName("n1")
+                .withHeader("h1")
+                .withFooter("f1"));
+
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
@@ -39,8 +49,8 @@ public class GroupCreationTest extends TestBase {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("", "", ""));
-        app.getGroupHelper().submitGroupCreation();
+        app.getGroupHelper().fillGroupForm(new GroupData()); // since we now have constructor we don't
+        app.getGroupHelper().submitGroupCreation();          // need to use null or empty String as an argument
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
         System.out.println("testGroupCreationEmpty() PASSED");
