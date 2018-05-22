@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class GroupCreationTest extends TestBase {
 
-    @Test(priority = 2)
+    @Test(priority = 2) // priority- defines sequence of the test execution
     public void testGroupCreationLongName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -20,7 +20,7 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 1, enabled = false) // method won't working
+    @Test(priority = 1, enabled = false) // method won't be executed
     public void testGroupCreationShortName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -34,7 +34,7 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 3, enabled = false)  // method won't working
+    @Test(priority = 3, enabled = false)  // method won't be executed
     public void testGroupCreationEmpty() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();

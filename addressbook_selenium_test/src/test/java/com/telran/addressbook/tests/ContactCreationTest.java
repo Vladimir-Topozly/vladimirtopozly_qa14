@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class ContactCreationTest extends TestBase {
 
-    @Test (priority = 1)
+    @Test //(priority = 1)
     public void testContactCreationLongName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -24,7 +24,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test (priority = 2)
+    @Test //(priority = 2)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -40,7 +40,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test (priority = 0)
+    @Test //(priority = 0)
     public void testContactCreationEmpty() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
