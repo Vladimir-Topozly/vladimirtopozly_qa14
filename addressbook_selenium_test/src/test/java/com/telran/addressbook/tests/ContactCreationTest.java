@@ -4,9 +4,10 @@ import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class ContactCreationTest extends TestBase {
 
-    @Test(priority = 3)
+    @Test //(priority = 3)
     public void testContactCreationLongName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -18,12 +19,12 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
-        System.out.println("testContactCreationLongName() passed");
 
+        System.out.println("1 method: testContactCreationLongName() passed");
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 2)
+    @Test //(priority = 2)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -34,12 +35,12 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
-        System.out.println("testContactCreationShortName() passed");
 
+        System.out.println("2 method: testContactCreationShortName() passed");
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 1)
+    @Test //(priority = 1, enabled = false)
     public void testContactCreationEmpty() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -50,8 +51,8 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
-        System.out.println("testContactCreationEmpty() passed");
 
+        System.out.println("3 method: testContactCreationEmpty() passed");
         Assert.assertEquals(after, before + 1);
     }
 

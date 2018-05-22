@@ -1,8 +1,6 @@
 package com.telran.addressbook.appManager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,7 +16,7 @@ public class ApplicationManager {
     public void start() {
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(driver);
         contactsHelper = new ContactsHelper(driver);
         navigationHelper = new NavigationHelper(driver);
