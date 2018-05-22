@@ -15,7 +15,7 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationLongName() passed"); // will print only if the test passed
+        System.out.println("testGroupCreationLongName() PASSED"); // will print only if the test passed
 
         Assert.assertEquals(after, before + 1);
     }
@@ -29,7 +29,7 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationShortName() passed");
+        System.out.println("testGroupCreationShortName() PASSED");
 
         Assert.assertEquals(after, before + 1);
     }
@@ -43,7 +43,7 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationEmpty() passed");
+        System.out.println("testGroupCreationEmpty() PASSED");
 
         Assert.assertEquals(after, before + 1);
     }
