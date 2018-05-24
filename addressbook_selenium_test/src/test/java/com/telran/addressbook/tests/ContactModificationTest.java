@@ -17,10 +17,10 @@ public class ContactModificationTest extends TestBase {
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().selectContact();
         app.getContactsHelper().initContactModification();
-        app.getContactsHelper().fillContactForm(
-                new ContactData("EditedName", "EditedLastname", "Edited_long_title_1",
-                        "Edited_company", "Edited_city", "Edited_phone",
-                        "Edited_email", "Edited_Address"));
+        app.getContactsHelper().fillContactForm(new ContactData()
+                .setFirstName("EditedName").setLastName("Edited_LastName")
+                .setTitle("Edited_long_title_1").setCompany("Edited_company").setCompanyAddress("Edited_Com_address")
+                .setPhone("Edited_phone...").setEmail("edited_email@mail.com").setAddress("Edited_address"));
         app.getContactsHelper().submitContactModification();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();

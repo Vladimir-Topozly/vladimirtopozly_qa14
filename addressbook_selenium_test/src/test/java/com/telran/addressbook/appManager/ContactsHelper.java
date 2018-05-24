@@ -59,8 +59,10 @@ public class ContactsHelper extends HelperBase {
 
     public void createContact() {
         initContactCreation();
-        fillContactForm(new ContactData("name", "lastname", "title1", "A",
-                "H", "054...", "user1@mail.com", "TA"));
+        fillContactForm(new ContactData()
+                .setFirstName("name").setLastName("lastname")
+                .setTitle("title1").setCompany("A").setAddress("TA")
+                .setPhone("11111111").setEmail("u1@mail.com").setCompanyAddress("H"));
         submitContactCreation();
         returnToHomePage();
 

@@ -12,10 +12,11 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContactForm(
-                new ContactData("Long_name", "Long_lastname", "long_title_1",
-                        "Apple", "Herzliya", "0540044040",
-                        "user1@mail.com", "Tel Aviv"));
+
+        app.getContactsHelper().fillContactForm(new ContactData()
+                        .setFirstName("Long_name").setLastName("Long_lastname")
+                        .setTitle("long_title_1").setCompany("Apple").setAddress("Tel Aviv")
+                        .setPhone("0540044040").setEmail("user1@mail.com").setCompanyAddress("Herzliya"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -30,9 +31,12 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContactForm(
-                new ContactData("name", "lastname", "title1", "A",
-                        "H", "054...", "user1@mail.com", "TA"));
+
+        app.getContactsHelper().fillContactForm(new ContactData()
+                .setFirstName("name").setLastName("lastname")
+                .setTitle("title1").setCompany("A").setAddress("TA")
+                .setPhone("054...").setEmail("u1@mail.com").setCompanyAddress("H"));
+
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
@@ -46,9 +50,7 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContactForm(
-                new ContactData("", "", "", "", "",
-                        "", "", ""));
+        app.getContactsHelper().fillContactForm(new ContactData());
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
