@@ -21,7 +21,8 @@ public class NavigationHelper extends HelperBase {
 
     public void goToHomePage() {
         if (isElementPresent(By.xpath("//input[@title='Search for any text']"))
-                && isElementPresent(By.xpath("//input[@value='Send e-Mail']"))) {
+                && isElementPresent(By.xpath("//input[@value='Send e-Mail']"))
+                && isElementPresent(By.id("maintable"))) {
             return;
         }
         click(By.linkText("home"));

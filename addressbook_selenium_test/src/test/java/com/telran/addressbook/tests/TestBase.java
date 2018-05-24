@@ -7,13 +7,15 @@ import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    protected static ApplicationManager app =
+    public static ApplicationManager app =
             new ApplicationManager(BrowserType.CHROME); // make static in order to create more
-                                                        // than one object of the ApplicationManager
+    // than one object of the ApplicationManager (
+    // to rn more than one test)
 
-    @BeforeSuite(alwaysRun = true)  //an annotation for TestNG framework
+    @BeforeSuite(alwaysRun = true)    //an annotation for TestNG framework
     public void setUp() {
         app.start();
+
     }
 
 

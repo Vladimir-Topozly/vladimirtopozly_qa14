@@ -52,4 +52,17 @@ public class ContactsHelper extends HelperBase {
     public int GetContactCount() {
         return driver.findElements(By.name("selected[]")).size();
     }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createContact() {
+        initContactCreation();
+        fillContactForm(new ContactData("name", "lastname", "title1", "A",
+                "H", "054...", "user1@mail.com", "TA"));
+        submitContactCreation();
+        returnToHomePage();
+
+    }
 }
