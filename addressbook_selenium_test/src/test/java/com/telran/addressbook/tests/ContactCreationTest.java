@@ -14,9 +14,9 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().initContactCreation();
 
         app.getContactsHelper().fillContactForm(new ContactData()
-                        .setFirstName("Long_name").setLastName("Long_lastname")
-                        .setTitle("long_title_1").setCompany("Apple").setAddress("Tel Aviv")
-                        .setPhone("0540044040").setEmail("user1@mail.com").setCompanyAddress("Herzliya"));
+                        .withFirstName("Long_name").withLastName("Long_lastname")
+                        .withTitle("long_title_1").withCompany("Apple").withAddress("Tel Aviv")
+                        .withPhone("0540044040").withEmail("user1@mail.com").withCompanyAddress("Herzliya"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -33,9 +33,9 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().initContactCreation();
 
         app.getContactsHelper().fillContactForm(new ContactData()
-                .setFirstName("name").setLastName("lastname")
-                .setTitle("title1").setCompany("A").setAddress("TA")
-                .setPhone("054...").setEmail("u1@mail.com").setCompanyAddress("H"));
+                .withFirstName("name").withLastName("lastname")
+                .withTitle("title1").withCompany("A").withAddress("TA")
+                .withPhone("054...").withEmail("u1@mail.com").withCompanyAddress("H"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();

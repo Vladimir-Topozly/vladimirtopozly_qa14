@@ -18,9 +18,9 @@ public class ContactModificationTest extends TestBase {
         app.getContactsHelper().selectContact();
         app.getContactsHelper().initContactModification();
         app.getContactsHelper().fillContactForm(new ContactData()
-                .setFirstName("EditedName").setLastName("Edited_LastName")
-                .setTitle("Edited_long_title_1").setCompany("Edited_company").setCompanyAddress("Edited_Com_address")
-                .setPhone("Edited_phone...").setEmail("edited_email@mail.com").setAddress("Edited_address"));
+                .withFirstName("EditedName").withLastName("Edited_LastName")
+                .withTitle("Edited_long_title_1").withCompany("Edited_company").withCompanyAddress("Edited_Com_address")
+                .withPhone("Edited_phone...").withEmail("edited_email@mail.com").withAddress("Edited_address"));
         app.getContactsHelper().submitContactModification();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();

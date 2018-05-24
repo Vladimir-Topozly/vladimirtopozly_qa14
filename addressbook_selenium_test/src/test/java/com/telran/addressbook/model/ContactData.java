@@ -10,42 +10,42 @@ public class ContactData {
     private String email;
     private String address;
 
-    public ContactData setFirstName(String firstName) {
+    public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public ContactData setLastName(String lastName) {
+    public ContactData withLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public ContactData setTitle(String title) {
+    public ContactData withTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public ContactData setCompany(String company) {
+    public ContactData withCompany(String company) {
         this.company = company;
         return this;
     }
 
-    public ContactData setCompanyAddress(String companyAddress) {
+    public ContactData withCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
         return this;
     }
 
-    public ContactData setPhone(String phone) {
+    public ContactData withPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public ContactData setEmail(String email) {
+    public ContactData withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public ContactData setAddress(String address) {
+    public ContactData withAddress(String address) {
         this.address = address;
         return this;
     }
