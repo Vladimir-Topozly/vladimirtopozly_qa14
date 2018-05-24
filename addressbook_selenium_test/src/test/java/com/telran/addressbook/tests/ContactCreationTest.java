@@ -14,9 +14,9 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().initContactCreation();
 
         app.getContactsHelper().fillContactForm(new ContactData()
-                        .withFirstName("Long_name").withLastName("Long_lastName")
-                        .withTitle("long_title_1").withCompany("Apple").withAddress("Tel Aviv")
-                        .withPhone("0540044040").withEmail("user1@mail.com").withCompanyAddress("Herzliya"));
+                .withFirstName("Long_name").withLastName("Long_lastName")
+                .withTitle("long_title_1").withCompany("Apple").withAddress("Tel Aviv")
+                .withPhone("0540044040").withEmail("user1@mail.com").withCompanyAddress("Herzliya"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();

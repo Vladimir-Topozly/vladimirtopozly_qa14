@@ -10,7 +10,7 @@ public class ContactModificationTest extends TestBase {
     public void testContactModification() {
         app.getNavigationHelper().goToHomePage();
 
-        if(!app.getContactsHelper().isThereAContact()){
+        if (!app.getContactsHelper().isThereAContact()) {
             app.getContactsHelper().createContact();
         }
 

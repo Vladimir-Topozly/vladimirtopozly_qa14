@@ -74,7 +74,9 @@ public class ContactData {
         return phone;
     }
 
-    public String getEmail() { return email; }
+    public String getEmail() {
+        return email;
+    }
 
     public String getAddress() {
         return address;

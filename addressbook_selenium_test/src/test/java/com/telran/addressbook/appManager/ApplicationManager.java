@@ -15,6 +15,7 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
     private ContactsHelper contactsHelper;
     private NavigationHelper navigationHelper;
+    private HelperBase helperBase;
     private String browser;     // variable to define which browser to use
 
     public ApplicationManager(String browser) {
@@ -27,15 +28,15 @@ public class ApplicationManager {
             driver = new ChromeDriver();
         } else if (browser.equals((BrowserType.FIREFOX))) {
             driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-        } else if (browser.equals(BrowserType.IE)){ //TODO: add internet explorer driver to /opt/tools
-            driver  = new InternetExplorerDriver();
+        } else if (browser.equals(BrowserType.IE)) { //TODO: add internet explorer driver to /opt/tools
+            driver = new InternetExplorerDriver();
         }
 
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // fluent interface- one methods calls another)
         groupHelper = new GroupHelper(driver);
         contactsHelper = new ContactsHelper(driver);
         navigationHelper = new NavigationHelper(driver);
-
+        
         openAddressBook("http://localhost/addressbook/edit.php");
         login("admin", "secret");
     }

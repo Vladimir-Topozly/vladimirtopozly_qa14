@@ -8,7 +8,7 @@ public class GroupDeletionTest extends TestBase {
     public void testGroupDeletion() {
         app.getNavigationHelper().goToGroupsPage();
 
-        if(!app.getGroupHelper().isThereAGroup()){
+        if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup();   // check precondition if group exists
         }
 

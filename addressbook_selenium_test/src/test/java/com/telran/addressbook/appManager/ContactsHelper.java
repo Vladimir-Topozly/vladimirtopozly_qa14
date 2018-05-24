@@ -65,6 +65,5 @@ public class ContactsHelper extends HelperBase {
                 .withPhone("11111111").withEmail("u1@mail.com").withCompanyAddress("H"));
         submitContactCreation();
         returnToHomePage();
-
     }
 }

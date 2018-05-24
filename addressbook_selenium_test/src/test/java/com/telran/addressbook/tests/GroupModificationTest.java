@@ -9,7 +9,7 @@ public class GroupModificationTest extends TestBase {
     public void testGroupModification() {
         app.getNavigationHelper().goToGroupsPage();
 
-        if(!app.getGroupHelper().isThereAGroup()){
+        if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup();   // check precondition whether group exists
         }
 

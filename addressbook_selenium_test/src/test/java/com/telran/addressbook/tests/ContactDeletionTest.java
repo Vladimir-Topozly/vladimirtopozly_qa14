@@ -8,7 +8,7 @@ public class ContactDeletionTest extends TestBase {
     public void testContactDeletion() {
         app.getNavigationHelper().goToHomePage();
 
-        if(!app.getContactsHelper().isThereAContact()){
+        if (!app.getContactsHelper().isThereAContact()) {
             app.getContactsHelper().createContact();
         }
 
@@ -19,7 +19,7 @@ public class ContactDeletionTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int after = app.getContactsHelper().GetContactCount();
 
-        Assert.assertEquals(after, before-1);
+        Assert.assertEquals(after, before - 1);
     }
 
 
