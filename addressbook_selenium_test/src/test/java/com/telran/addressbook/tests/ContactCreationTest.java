@@ -12,10 +12,11 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContact(
+        app.getContactsHelper().fillContactForm(
                 new ContactData("Long_name", "Long_lastname", "long_title_1",
                         "Apple", "Herzliya", "0540044040",
                         "user1@mail.com", "Tel Aviv"));
+
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();
@@ -29,7 +30,7 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContact(
+        app.getContactsHelper().fillContactForm(
                 new ContactData("name", "lastname", "title1", "A",
                         "H", "054...", "user1@mail.com", "TA"));
         app.getContactsHelper().submitContactCreation();
@@ -45,7 +46,7 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContact(
+        app.getContactsHelper().fillContactForm(
                 new ContactData("", "", "", "", "",
                         "", "", ""));
         app.getContactsHelper().submitContactCreation();

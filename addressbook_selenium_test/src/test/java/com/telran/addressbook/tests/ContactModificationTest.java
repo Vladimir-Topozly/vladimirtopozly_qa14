@@ -12,7 +12,7 @@ public class ContactModificationTest extends TestBase {
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().selectContact();
         app.getContactsHelper().initContactModification();
-        app.getContactsHelper().fillContact(
+        app.getContactsHelper().fillContactForm(
                 new ContactData("EditedName", "EditedLastname", "Edited_long_title_1",
                         "Edited_company", "Edited_city", "Edited_phone",
                         "Edited_email", "Edited_Address"));

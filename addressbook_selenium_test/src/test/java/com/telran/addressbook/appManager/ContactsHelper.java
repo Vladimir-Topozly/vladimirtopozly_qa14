@@ -4,63 +4,45 @@ import com.telran.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ContactsHelper extends HelperBase{
+public class ContactsHelper extends HelperBase {
 
     public ContactsHelper(WebDriver driver) { // constructor for the super class HelperBase
         super(driver);
     }
 
     public void returnToHomePage() {
-        driver.findElement(By.linkText("home page")).click();
+        click(By.linkText("home page"));
     }
 
     public void submitContactCreation() {
         driver.findElement(By.name("submit")).click();
     }
 
-    public void fillContact(ContactData contactData) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-        driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-        driver.findElement(By.name("title")).click();
-        driver.findElement(By.name("title")).clear();
-        driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
-        driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(contactData.getCompanyAddress());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getPhone());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getEmail());
-        driver.findElement(By.name("address2")).click();
-        driver.findElement(By.name("address2")).clear();
-        driver.findElement(By.name("address2")).sendKeys(contactData.getAddress());
+    public void fillContactForm(ContactData contactData) {
+        type(By.name("firstname"), contactData.getFirstName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("title"), contactData.getTitle());
+        type(By.name("company"), contactData.getCompany());
+        type(By.name("address"), contactData.getCompanyAddress());
+        type(By.name("mobile"), contactData.getPhone());
+        type(By.name("email"), contactData.getEmail());
+        type(By.name("address2"), contactData.getAddress());
     }
 
     public void initContactCreation() {
-        driver.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 
     public void selectContact() {
-        driver.findElement(By.name("selected[]")).click();
+        click(By.name("selected[]"));
     }
 
     public void initContactModification() {
-        driver.findElement(By.xpath("//img[@alt='Edit']")).click();
+        click(By.xpath("//img[@alt='Edit']"));
     }
 
     public void submitContactModification() {
-        driver.findElement(By.xpath("(//input[@name='update'])[2]")).click();
+        click(By.xpath("(//input[@name='update'])[2]"));
     }
 
     public void deleteContact() {
