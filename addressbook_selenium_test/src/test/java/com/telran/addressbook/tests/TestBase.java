@@ -9,10 +9,9 @@ public class TestBase {
 
     public static ApplicationManager app =
             new ApplicationManager(BrowserType.CHROME); // make static in order to create more
-    // than one object of the ApplicationManager (
-    // to rn more than one test)
+    // than one object of the ApplicationManager (to run more than one test)
 
-    @BeforeSuite(alwaysRun = true)    //an annotation for TestNG framework
+    @BeforeSuite(alwaysRun = true)    // annotation for the TestNG framework
     public void setUp() {
         app.start();
 
@@ -22,5 +21,4 @@ public class TestBase {
     public void tearDown() {
         app.stop();
     }
-
 }

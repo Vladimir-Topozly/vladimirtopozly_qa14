@@ -36,7 +36,7 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(driver);
         contactsHelper = new ContactsHelper(driver);
         navigationHelper = new NavigationHelper(driver);
-        
+
         openAddressBook("http://localhost/addressbook/edit.php");
         login("admin", "secret");
     }

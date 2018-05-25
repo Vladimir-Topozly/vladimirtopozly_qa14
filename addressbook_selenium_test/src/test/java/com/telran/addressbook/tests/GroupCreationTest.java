@@ -6,13 +6,13 @@ import org.testng.annotations.Test;
 
 public class GroupCreationTest extends TestBase {
 
-    @Test(priority = 2) // priority- defines sequence of the test execution
+    @Test //(priority = 2) // priority defines sequence of the test execution
     public void testGroupCreationLongName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
 
-        app.getGroupHelper().fillGroupForm(new GroupData() // using set methods from the GroupData class
+        app.getGroupHelper().fillGroupForm(new GroupData() // using setters from the GroupData class
                 .withName("myName")
                 .withHeader("myHeader")
                 .withFooter("myFooter"));
@@ -25,7 +25,7 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 1, enabled = false) // method won't be executed
+    @Test //(priority = 1, enabled = false) // due to 'enabled = false' method won't be executed
     public void testGroupCreationShortName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -44,13 +44,16 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 3, enabled = false)  // method won't be executed
+    @Test //(priority = 3, enabled = false)  // method won't be executed
     public void testGroupCreationEmpty() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData()); // since we now have constructor we don't
-        app.getGroupHelper().submitGroupCreation();          // need to use null or empty String as an argument
+
+        app.getGroupHelper().fillGroupForm(new GroupData()); // since we now have a constructor
+        // we don't need to use 'null' or empty String as an argument to create an empty group
+
+        app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
         System.out.println("testGroupCreationEmpty() PASSED");
