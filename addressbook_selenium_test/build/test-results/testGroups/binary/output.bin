@@ -1,0 +1,3 @@
+ testGroupCreationEmpty() PASSED
+#testGroupCreationLongName() PASSED
+$testGroupCreationShortName() PASSED
