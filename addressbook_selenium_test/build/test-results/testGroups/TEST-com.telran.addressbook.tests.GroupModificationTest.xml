@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telran.addressbook.tests.GroupModificationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-28T05:49:18" hostname="Vladimirs-MBP" time="1.598">
-  <properties/>
-  <testcase name="testGroupModification" classname="com.telran.addressbook.tests.GroupModificationTest" time="1.598"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

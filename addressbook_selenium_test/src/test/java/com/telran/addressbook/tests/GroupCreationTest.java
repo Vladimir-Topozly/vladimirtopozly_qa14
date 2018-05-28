@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class GroupCreationTest extends TestBase {
 
-    @Test (priority = 3) // priority defines sequence of the test execution
+    @Test //(priority = 3) // priority defines sequence of the test execution
     public void testGroupCreationLongName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -25,7 +25,7 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test (priority = 2) // due to 'enabled = false' method won't be executed
+    @Test //(priority = 2) // due to 'enabled = false' method won't be executed
     public void testGroupCreationShortName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -44,8 +44,8 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test (priority = 1)  // method won't be executed
-    public void testGroupCreationEmpty() throws Exception {
+    @Test //(priority = 1)  // method won't be executed
+    public void testGroupCreationNoName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
@@ -56,7 +56,7 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("method 3 PASSED: testGroupCreationEmpty() PASSED");
+        System.out.println("method 3 PASSED: testGroupCreationNoName()");
 
         Assert.assertEquals(after, before + 1);
     }

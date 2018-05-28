@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.addressbook.tests.ContactCreationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-05-28T17:49:29" hostname="Vladimirs-MBP" time="11.097">
+  <properties/>
+  <testcase name="testContactCreationLongName" classname="com.telran.addressbook.tests.ContactCreationTest" time="6.317"/>
+  <testcase name="testContactCreationNoName" classname="com.telran.addressbook.tests.ContactCreationTest" time="2.042"/>
+  <testcase name="testContactCreationShortName" classname="com.telran.addressbook.tests.ContactCreationTest" time="2.734"/>
+  <system-out><![CDATA[1 method: testContactCreationLongName() PASSED
+3 method: testContactCreationNoName() PASSED
+2 method: testContactCreationShortName() PASSED
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
