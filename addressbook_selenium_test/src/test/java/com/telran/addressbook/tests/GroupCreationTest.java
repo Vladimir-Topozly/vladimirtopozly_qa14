@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class GroupCreationTest extends TestBase {
 
-    @Test //(priority = 2) // priority defines sequence of the test execution
+    @Test (priority = 3) // priority defines sequence of the test execution
     public void testGroupCreationLongName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -20,12 +20,12 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationLongName() PASSED"); // will be printed only if test passed
+        System.out.println("method 1 PASSED: testGroupCreationLongName()"); // will be printed only if test passed
 
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 1, enabled = false) // due to 'enabled = false' method won't be executed
+    @Test (priority = 2) // due to 'enabled = false' method won't be executed
     public void testGroupCreationShortName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -39,12 +39,12 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationShortName() PASSED");
+        System.out.println("method 2 PASSED: testGroupCreationShortName()");
 
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 3, enabled = false)  // method won't be executed
+    @Test (priority = 1)  // method won't be executed
     public void testGroupCreationEmpty() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
@@ -56,7 +56,7 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        System.out.println("testGroupCreationEmpty() PASSED");
+        System.out.println("method 3 PASSED: testGroupCreationEmpty() PASSED");
 
         Assert.assertEquals(after, before + 1);
     }

@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="addressbook" verbose="1" >
+<suite name="addressbook" verbose="1">
     <test name="Contacts">
         <classes>
-            <class name="com.telran.addressbook.tests.ContactCreationTest" />
-            <class name="com.telran.addressbook.tests.ContactModificationTest" />
-            <class name="com.telran.addressbook.tests.ContactDeletionTest" />
+            <class name="com.telran.addressbook.tests.ContactCreationTest"/>
+            <class name="com.telran.addressbook.tests.ContactModificationTest"/>
+            <class name="com.telran.addressbook.tests.ContactDeletionTest"/>
         </classes>
     </test>
 </suite>
