@@ -1,4 +1,4 @@
-package com.telran.addressbook.model;
+package model;
 
 import java.io.File;
 

@@ -4,6 +4,8 @@ import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 
 public class ContactCreationTest extends TestBase {
 
@@ -13,10 +15,19 @@ public class ContactCreationTest extends TestBase {
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
 
+        File photo = new File("src/test/resources/images.jpeg"); // adding a file
+
         app.getContactsHelper().fillContactForm(new ContactData()
-                .withFirstName("Long_name").withLastName("Long_lastName")
-                .withTitle("long_title_1").withCompany("Apple").withAddress("Tel Aviv")
-                .withPhone("0540044040").withEmail("user1@mail.com").withCompanyAddress("Herzliya"));
+                .withFirstName("Long_name")
+                .withLastName("Long_lastName")
+                .withTitle("long_title_1")
+                .withCompany("Apple")
+                .withAddress("Tel Aviv")
+                .withPhone("0540044040")
+                .withEmail("user1@mail.com")
+                .withCompanyAddress("Herzliya")
+                .withPhoto(photo)
+                .withGroup("myName"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -26,7 +37,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 1)
+    @Test //(priority = 1, enabled = false)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -35,7 +46,7 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().fillContactForm(new ContactData()
                 .withFirstName("name").withLastName("lastName")
                 .withTitle("title1").withCompany("A").withAddress("TA")
-                .withPhone("054...").withEmail("u1@mail.com").withCompanyAddress("H"));
+                .withPhone("054...").withEmail("u1@mail.com").withCompanyAddress("H").withGroup("myName"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -45,12 +56,12 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 2)
+    @Test //(priority = 2, enabled = false)
     public void testContactCreationNoName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContactForm(new ContactData());
+        app.getContactsHelper().fillContactForm(new ContactData().withGroup("n1"));
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();

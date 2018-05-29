@@ -1,6 +1,6 @@
-package com.telran.addressbook.appManager;
+package appManager;
 
-import com.telran.addressbook.model.ContactData;
+import model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
