@@ -30,7 +30,7 @@ public class ContactsHelper extends HelperBase {
         type(By.name("address2"), contactData.getAddress());
         attach(By.name("photo"), contactData.getPhoto());
 
-        if(isElementPresent(By.xpath("//*[@name='new_group']"))){
+        if (isElementPresent(By.xpath("//*[@name='new_group']"))) {
             new Select(driver.findElement(By.xpath("//*[@name='new_group']"))).selectByVisibleText(contactData.getGroup());
         }
     }

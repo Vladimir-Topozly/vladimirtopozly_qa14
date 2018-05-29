@@ -44,9 +44,15 @@ public class ContactCreationTest extends TestBase {
         app.getContactsHelper().initContactCreation();
 
         app.getContactsHelper().fillContactForm(new ContactData()
-                .withFirstName("name").withLastName("lastName")
-                .withTitle("title1").withCompany("A").withAddress("TA")
-                .withPhone("054...").withEmail("u1@mail.com").withCompanyAddress("H").withGroup("myName"));
+                .withFirstName("name")
+                .withLastName("lastName")
+                .withTitle("title1")
+                .withCompany("A")
+                .withAddress("TA")
+                .withPhone("054...")
+                .withEmail("u1@mail.com")
+                .withCompanyAddress("H")
+                .withGroup("myName"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();

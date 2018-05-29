@@ -66,9 +66,14 @@ public class ContactsHelper extends HelperBase {
     public void createContact() {
         initContactCreation();
         fillContactForm(new ContactData()
-                .withFirstName("name").withLastName("lastname")
-                .withTitle("title1").withCompany("A").withAddress("TA")
-                .withPhone("11111111").withEmail("u1@mail.com").withCompanyAddress("H"));
+                .withFirstName("name")
+                .withLastName("lastname")
+                .withTitle("title1")
+                .withCompany("A")
+                .withAddress("TA")
+                .withPhone("11111111")
+                .withEmail("u1@mail.com")
+                .withCompanyAddress("H"));
         submitContactCreation();
         returnToHomePage();
     }
