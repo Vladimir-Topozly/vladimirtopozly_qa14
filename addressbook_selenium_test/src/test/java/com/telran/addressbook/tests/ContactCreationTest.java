@@ -15,10 +15,10 @@ public class ContactCreationTest extends TestBase {
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
 
-        File photo = new File("src/test/resources/images.jpeg"); // adding a file
+        File photo = new File("src/test/resources/image.jpeg"); // adding a file
 
         app.getContactsHelper().fillContactForm(new ContactData()
-                .withFirstName("Long_name")
+                .withFirstName("With_IMAGE__name1")
                 .withLastName("Long_lastName")
                 .withTitle("long_title_1")
                 .withCompany("Apple")

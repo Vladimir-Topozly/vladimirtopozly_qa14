@@ -20,6 +20,14 @@ public class GroupData {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "name='" + name + '\'' +
+                ", header='" + header + '\'' +
+                ", footer='" + footer + '\'' +
+                '}';
+    }
     /*
     * Deleted constructor and replaced it with the set methods
     * for more usability
