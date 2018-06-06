@@ -32,7 +32,7 @@ public class ContactModificationTest extends TestBase {
                 .withEmail("edited_email@mail.com")
                 .withAddress("Edited_address")
                 .withPhoto(photoModified)
-                .withGroup("myName"));
+                .withGroup("testName 4"));
         app.getContactsHelper().submitContactModification();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();

@@ -31,7 +31,7 @@ public class GroupCreationTest extends TestBase {
     }
 
 
-    @Test(dataProvider = "validGroups", priority = 3) // priority defines sequence of the test execution
+    @Test(dataProvider = "validGroups", priority = 0) // priority defines sequence of the test execution
     public void testGroupCreationLongName(GroupData group) {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();

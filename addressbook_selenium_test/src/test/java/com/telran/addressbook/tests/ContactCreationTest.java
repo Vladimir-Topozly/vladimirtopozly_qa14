@@ -27,7 +27,7 @@ public class ContactCreationTest extends TestBase {
                 .withEmail("user1@mail.com")
                 .withCompanyAddress("Herzliya")
                 .withPhoto(photo)
-                .withGroup("myName"));
+                .withGroup("testName 1"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -52,7 +52,7 @@ public class ContactCreationTest extends TestBase {
                 .withPhone("054...")
                 .withEmail("u1@mail.com")
                 .withCompanyAddress("H")
-                .withGroup("myName"));
+                .withGroup("testName 2"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -67,7 +67,7 @@ public class ContactCreationTest extends TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
-        app.getContactsHelper().fillContactForm(new ContactData().withGroup("n1"));
+        app.getContactsHelper().fillContactForm(new ContactData().withGroup("testName 3"));
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
         int after = app.getContactsHelper().GetContactCount();

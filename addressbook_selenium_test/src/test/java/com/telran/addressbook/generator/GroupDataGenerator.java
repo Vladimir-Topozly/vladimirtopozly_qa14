@@ -15,7 +15,6 @@ public class GroupDataGenerator {
         File file = new File(args[1]);
 
         List<GroupData> groups = generateGroups(count);
-
         save(groups, file);
     }
 
@@ -33,7 +32,7 @@ public class GroupDataGenerator {
         for (int i = 0; i < count; i++) {
             groups.add(new GroupData()
                     .withName(String.format("testName %s", i))  // variable inside the String will change '%' to each
-                    //next iteration of the for loop
+                                                                //next iteration of the for loop
                     .withHeader(String.format("header %s", i))
                     .withFooter(String.format("footer %s", i)));
         }

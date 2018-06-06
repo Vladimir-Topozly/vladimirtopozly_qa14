@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeSuite;
 public class TestBase {
 
     public static ApplicationManager app =
-            new ApplicationManager(System.getProperty("browser", (BrowserType.CHROME)));
+            new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
     // make static in order to create more
     // than one object of the ApplicationManager (to run more than one test)
 
