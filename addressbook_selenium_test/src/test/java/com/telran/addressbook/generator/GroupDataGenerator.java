@@ -31,7 +31,7 @@ public class GroupDataGenerator {
         List<GroupData> groups = new ArrayList<GroupData>();
         for (int i = 0; i < count; i++) {
             groups.add(new GroupData()
-                    .withName(String.format("testName %s", i))  // variable inside the String will change '%' to each
+                    .withName(String.format("testName %s", i))  // variable inside the String will change '%' into each
                                                                 //next iteration of the for loop
                     .withHeader(String.format("header %s", i))
                     .withFooter(String.format("footer %s", i)));

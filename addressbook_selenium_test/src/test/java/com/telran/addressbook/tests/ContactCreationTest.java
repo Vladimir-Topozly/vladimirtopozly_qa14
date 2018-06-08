@@ -2,12 +2,27 @@ package com.telran.addressbook.tests;
 
 import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class ContactCreationTest extends TestBase {
+    @DataProvider
+    public Iterator<Object[]>validContacts() throws FileNotFoundException {
+        List<Object> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(
+                new File("crc/test/resources/contacts.csv")));
+
+        return null; //TODO: adapt all @Test methods so as they work with the DataProvider
+    }
 
     @Test //(priority = 3)
     public void testContactCreationLongName() {
