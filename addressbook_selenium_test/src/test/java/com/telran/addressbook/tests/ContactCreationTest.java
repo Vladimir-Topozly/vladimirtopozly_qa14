@@ -4,33 +4,60 @@ import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 
-public class ContactCreationTest extends TestBase {
-    @DataProvider
-    public Iterator<Object[]>validContacts() throws FileNotFoundException {
-        List<Object> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(
-                new File("crc/test/resources/contacts.csv")));
+public class ContactCreationTest extends TestBase { //TODO: adapt all @Test methods so as they work with the DataProvider
 
-        return null; //TODO: adapt all @Test methods so as they work with the DataProvider
+    @DataProvider
+    public Iterator<Object[]> validContacts() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(
+                new File("src/test/resources/contacts.csv")));
+
+        String line = reader.readLine();
+        while (line != null) {
+            String[] split = line.split(";");
+            list.add(new Object[]{new ContactData()
+                    .withFirstName(split[0])
+                    .withLastName(split[1])
+                    .withTitle(split[2])
+                    .withCompany(split[3])
+                    .withAddress(split[4])
+                    .withPhone(split[5])
+                    .withEmail(split[6])
+                    .withCompanyAddress(split[7])
+                    .withGroup(split[8])});
+            line = reader.readLine();
+        }
+        return list.iterator();
     }
 
-    @Test //(priority = 3)
-    public void testContactCreationLongName() {
+    @Test(dataProvider = "validContacts")
+    public void testContactCreationLongName(ContactData contact) {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
         app.getContactsHelper().initContactCreation();
 
         File photo = new File("src/test/resources/image.jpeg"); // adding a file
+
+//        app.getContactsHelper().fillContactForm(new ContactData()
+//                .withFirstName(contact.getFirstName())
+//                .withLastName(contact.getLastName())
+//                .withTitle(contact.getTitle())
+//                .withCompany(contact.getCompany())
+//                .withAddress(contact.getAddress())
+//                .withPhone(contact.getPhone())
+//                .withEmail(contact.getEmail())
+//                .withCompanyAddress(contact.getCompanyAddress())
+//                .withPhoto(photo)
+//                .withGroup(contact.getGroup()));
 
         app.getContactsHelper().fillContactForm(new ContactData()
                 .withFirstName("With_IMAGE__name1")
@@ -52,7 +79,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 1, enabled = false)
+    @Test(enabled = false)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -77,7 +104,7 @@ public class ContactCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test //(priority = 2, enabled = false)
+    @Test(enabled = false)
     public void testContactCreationNoName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();

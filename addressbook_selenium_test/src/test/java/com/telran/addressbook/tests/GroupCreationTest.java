@@ -5,7 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,10 +17,11 @@ import java.util.List;
 public class GroupCreationTest extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validGroups() throws IOException {
+    public Iterator<Object[]> validGroups() throws IOException { // Iterator can go through lists abd read them (works with the object)
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader
-                (new FileReader(new File("src/test/resources/groups.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(
+                new File("src/test/resources/groups.csv")));  // Buffered reader can work with lines inside the file
+
         String line = reader.readLine();
         while (line != null) {
             String[] split = line.split(";");  // use groups.xml to fill data
@@ -29,7 +33,6 @@ public class GroupCreationTest extends TestBase {
         }
         return list.iterator();
     }
-
 
     @Test(dataProvider = "validGroups", priority = 0) // priority defines sequence of the test execution
     public void testGroupCreationLongName(GroupData group) {

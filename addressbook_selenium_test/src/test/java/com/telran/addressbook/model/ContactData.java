@@ -18,6 +18,22 @@ public class ContactData {
         return group;
     }
 
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", title='" + title + '\'' +
+                ", company='" + company + '\'' +
+                ", companyAddress='" + companyAddress + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", photo=" + photo +
+                ", group='" + group + '\'' +
+                '}';
+    }
+
     public ContactData withGroup(String group) {
         this.group = group;
         return this;

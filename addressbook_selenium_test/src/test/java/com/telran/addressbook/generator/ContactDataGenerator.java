@@ -23,8 +23,8 @@ public class ContactDataGenerator {
     private static void save(List<ContactData> contacts, File file) throws IOException {
         Writer writer = new FileWriter(file);
         for (ContactData contact : contacts) {
-            writer.write(String.format("%s; %s; %s %s; %s; %s %s; %s; %s \n",
-                    contact.getFirstName(), contact.getLastName(), contact.getTitle(), contact.getTitle(),
+            writer.write(String.format("%s; %s; %s; %s; %s; %s; %s; %s; %s \n",
+                    contact.getFirstName(), contact.getLastName(), contact.getTitle(),
                     contact.getCompany(), contact.getAddress(), contact.getPhone(),
                     contact.getEmail(), contact.getCompanyAddress(), contact.getGroup()));
         }
@@ -33,7 +33,7 @@ public class ContactDataGenerator {
 
     private static List<ContactData> generateContact(int count) {
         List<ContactData> contacts = new ArrayList<ContactData>();
-        for (int i = 0; i < count; i++) {
+        for (int i = 1; i < count; i++) {
             contacts.add(new ContactData()
                     .withFirstName(String.format("With_IMAGE__name %s", i))
                     .withLastName(String.format("Long_lastName %s", i))
@@ -43,7 +43,6 @@ public class ContactDataGenerator {
                     .withPhone(String.format("phone %s", i))
                     .withEmail(String.format("user@mail.com %s", i))
                     .withCompanyAddress(String.format("companyAddress %s", i))
-                    //.withPhoto(photo)
                     .withGroup(String.format("testName %s", i)));
         }
         return contacts;
