@@ -4,6 +4,7 @@ import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 
 public class ContactCreationTest extends TestBase { //TODO: adapt all @Test methods so as they work with the DataProvider
 
@@ -47,29 +47,29 @@ public class ContactCreationTest extends TestBase { //TODO: adapt all @Test meth
 
         File photo = new File("src/test/resources/image.jpeg"); // adding a file
 
-//        app.getContactsHelper().fillContactForm(new ContactData()
-//                .withFirstName(contact.getFirstName())
-//                .withLastName(contact.getLastName())
-//                .withTitle(contact.getTitle())
-//                .withCompany(contact.getCompany())
-//                .withAddress(contact.getAddress())
-//                .withPhone(contact.getPhone())
-//                .withEmail(contact.getEmail())
-//                .withCompanyAddress(contact.getCompanyAddress())
-//                .withPhoto(photo)
-//                .withGroup(contact.getGroup()));
-
-        app.getContactsHelper().fillContactForm(new ContactData()
-                .withFirstName("With_IMAGE__name1")
-                .withLastName("Long_lastName")
-                .withTitle("long_title_1")
-                .withCompany("Apple")
-                .withAddress("Tel Aviv")
-                .withPhone("0540044040")
-                .withEmail("user1@mail.com")
-                .withCompanyAddress("Herzliya")
+        app.getContactsHelper().fillContactForm(new ContactData() // using data provider and data from contacts.csv
+                .withFirstName(contact.getFirstName())
+                .withLastName(contact.getLastName())
+                .withTitle(contact.getTitle())
+                .withCompany(contact.getCompany())
+                .withAddress(contact.getAddress())
+                .withPhone(contact.getPhone())
+                .withEmail(contact.getEmail())
+                .withCompanyAddress(contact.getCompanyAddress())
                 .withPhoto(photo)
                 .withGroup("testName 1"));
+
+//        app.getContactsHelper().fillContactForm(new ContactData()
+//                .withFirstName("With_IMAGE__name1")
+//                .withLastName("Long_lastName")
+//                .withTitle("long_title_1")
+//                .withCompany("Apple")
+//                .withAddress("Tel Aviv")
+//                .withPhone("0540044040")
+//                .withEmail("user1@mail.com")
+//                .withCompanyAddress("Herzliya")
+//                .withPhoto(photo)
+//                .withGroup("testName 1"));
 
         app.getContactsHelper().submitContactCreation();
         app.getContactsHelper().returnToHomePage();
@@ -79,7 +79,7 @@ public class ContactCreationTest extends TestBase { //TODO: adapt all @Test meth
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(enabled = false)
+    @Test//(enabled = false)
     public void testContactCreationShortName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();
@@ -104,7 +104,7 @@ public class ContactCreationTest extends TestBase { //TODO: adapt all @Test meth
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(enabled = false)
+    @Test//(enabled = false)
     public void testContactCreationNoName() {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactsHelper().GetContactCount();

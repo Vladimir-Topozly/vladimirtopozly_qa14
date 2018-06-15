@@ -9,8 +9,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 1. create photo edition handler; refactor add(new ContactData() accordingly
-// TODO: 2. refactor method save making it applicable to the ContactCreationTest class
 public class ContactDataGenerator {
     public static void main(String[] args) throws IOException {
         int count = Integer.parseInt(args[0]);
