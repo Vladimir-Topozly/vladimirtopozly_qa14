@@ -4,6 +4,9 @@ import com.telran.addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class GroupModificationTest extends TestBase {
     @Test
     public void testGroupModification() {
@@ -13,18 +16,31 @@ public class GroupModificationTest extends TestBase {
             app.getGroupHelper().createGroup();   // check precondition whether group exists
         }
 
-        int before = app.getGroupHelper().getGroupCount();
-        app.getGroupHelper().selectGroup();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+        app.getGroupHelper().selectGroupByIndex(before.size() - 1);
         app.getGroupHelper().initGroupModification();
-        app.getGroupHelper().fillGroupForm(new GroupData()
+
+        GroupData group = new GroupData()
+                .withId(before.get(before.size() - 1).getId())
                 .withName("modified_name")
                 .withHeader("modified_header")
-                .withFooter("modified_footer"));
+                .withFooter("modified_footer");
 
+        app.getGroupHelper().fillGroupForm(group);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupsPage();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before);
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size());
+
+        before.remove(before.size() - 1);
+        before.add(group);
+
+        System.out.println("Before: " + before);
+        System.out.println("After: " + after);
+
+        Assert.assertEquals(new HashSet(before), new HashSet(after));
+
+
     }
 
 }

@@ -1,0 +1,6 @@
+/1 method: testContactCreationLongName() PASSED
+/1 method: testContactCreationLongName() PASSED
+/1 method: testContactCreationLongName() PASSED
+/1 method: testContactCreationLongName() PASSED
+-3 method: testContactCreationNoName() PASSED
+02 method: testContactCreationShortName() PASSED

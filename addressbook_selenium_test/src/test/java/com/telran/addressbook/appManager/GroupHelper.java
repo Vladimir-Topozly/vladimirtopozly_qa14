@@ -3,6 +3,10 @@ package com.telran.addressbook.appManager;
 import com.telran.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupHelper extends HelperBase {
 
@@ -60,5 +64,23 @@ public class GroupHelper extends HelperBase {
                 .withFooter("myFooter"));
         submitGroupCreation();
         returnToGroupsPage();
+    }
+
+    public void selectGroupByIndex(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click(); //click on a specified index
+    }
+
+    public List<GroupData> getGroupList() {  // adding all groups on the page into the array
+        List<GroupData> groups = new ArrayList<>();
+        List<WebElement> elements =
+                driver.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input"))
+                    .getAttribute("value"));
+            GroupData group = new GroupData().withId(id).withName(name);
+            groups.add(group);
+        }
+        return groups;
     }
 }

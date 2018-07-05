@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -53,23 +54,36 @@ public class GroupCreationTest extends TestBase {
         Assert.assertEquals(after, before + 1);
     }
 
-    @Test(priority = 2, enabled = false) // due to 'enabled = false' method won't be executed
+    @Test //(priority = 2, enabled = false) // due to 'enabled = false' method won't be executed
     public void testGroupCreationShortName() throws Exception {
         app.getNavigationHelper().goToGroupsPage();
-        int before = app.getGroupHelper().getGroupCount();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+        // int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
 
-        app.getGroupHelper().fillGroupForm(new GroupData()
+        GroupData group = new GroupData()
                 .withName("n1")
                 .withHeader("h1")
-                .withFooter("f1"));
+                .withFooter("f1");
+        app.getGroupHelper().fillGroupForm(group);
 
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupsPage();
-        int after = app.getGroupHelper().getGroupCount();
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        // int after = app.getGroupHelper().getGroupCount();
         System.out.println("method 2 PASSED: testGroupCreationShortName()");
 
-        Assert.assertEquals(after, before + 1);
+        Assert.assertEquals(after.size(), before.size() + 1);
+        int max = 0;
+        for (GroupData g : after) {
+            if (g.getId() > max) {
+                max = g.getId();
+            }
+        }
+        group.withId(max);
+        before.add(group);
+
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 
     @Test(priority = 1, enabled = false)
