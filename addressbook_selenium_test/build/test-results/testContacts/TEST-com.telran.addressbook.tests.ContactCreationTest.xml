@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telran.addressbook.tests.ContactCreationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-05T23:13:01" hostname="Vladimirs-MBP" time="20.47">
+<testsuite name="com.telran.addressbook.tests.ContactCreationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-06T02:22:25" hostname="Vladimirs-MBP" time="18.923">
   <properties/>
-  <testcase name="testContactCreationLongName[0](ContactData{firstName='With_IMAGE__name 1', lastName=' Long_lastName 1', title=' long_title_ 1', company=' company 1', companyAddress=' companyAddress 1', phone=' phone 1', email=' user@mail.com 1', address=' city 1', photo=null, group=' testName 1 '})" classname="com.telran.addressbook.tests.ContactCreationTest" time="6.38"/>
-  <testcase name="testContactCreationLongName[1](ContactData{firstName='With_IMAGE__name 2', lastName=' Long_lastName 2', title=' long_title_ 2', company=' company 2', companyAddress=' companyAddress 2', phone=' phone 2', email=' user@mail.com 2', address=' city 2', photo=null, group=' testName 2 '})" classname="com.telran.addressbook.tests.ContactCreationTest" time="3.163"/>
-  <testcase name="testContactCreationLongName[2](ContactData{firstName='With_IMAGE__name 3', lastName=' Long_lastName 3', title=' long_title_ 3', company=' company 3', companyAddress=' companyAddress 3', phone=' phone 3', email=' user@mail.com 3', address=' city 3', photo=null, group=' testName 3 '})" classname="com.telran.addressbook.tests.ContactCreationTest" time="3.158"/>
-  <testcase name="testContactCreationLongName[3](ContactData{firstName='With_IMAGE__name 4', lastName=' Long_lastName 4', title=' long_title_ 4', company=' company 4', companyAddress=' companyAddress 4', phone=' phone 4', email=' user@mail.com 4', address=' city 4', photo=null, group=' testName 4 '})" classname="com.telran.addressbook.tests.ContactCreationTest" time="3.2"/>
-  <testcase name="testContactCreationNoName" classname="com.telran.addressbook.tests.ContactCreationTest" time="1.74"/>
-  <testcase name="testContactCreationShortName" classname="com.telran.addressbook.tests.ContactCreationTest" time="2.823"/>
+  <testcase name="testContactCreationLongName[0](ContactData{contactId=0, firstName='With_IMAGE__name 1', lastName=' Long_lastName 1'})" classname="com.telran.addressbook.tests.ContactCreationTest" time="5.944"/>
+  <testcase name="testContactCreationLongName[1](ContactData{contactId=0, firstName='With_IMAGE__name 2', lastName=' Long_lastName 2'})" classname="com.telran.addressbook.tests.ContactCreationTest" time="3.01"/>
+  <testcase name="testContactCreationLongName[2](ContactData{contactId=0, firstName='With_IMAGE__name 3', lastName=' Long_lastName 3'})" classname="com.telran.addressbook.tests.ContactCreationTest" time="2.838"/>
+  <testcase name="testContactCreationLongName[3](ContactData{contactId=0, firstName='With_IMAGE__name 4', lastName=' Long_lastName 4'})" classname="com.telran.addressbook.tests.ContactCreationTest" time="3.002"/>
+  <testcase name="testContactCreationNoName" classname="com.telran.addressbook.tests.ContactCreationTest" time="1.482"/>
+  <testcase name="testContactCreationShortName" classname="com.telran.addressbook.tests.ContactCreationTest" time="2.642"/>
   <system-out><![CDATA[1 method: testContactCreationLongName() PASSED
 1 method: testContactCreationLongName() PASSED
 1 method: testContactCreationLongName() PASSED

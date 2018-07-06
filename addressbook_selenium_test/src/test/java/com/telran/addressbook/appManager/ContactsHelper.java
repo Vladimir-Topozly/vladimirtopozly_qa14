@@ -3,7 +3,11 @@ package com.telran.addressbook.appManager;
 import com.telran.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactsHelper extends HelperBase {
 
@@ -77,4 +81,25 @@ public class ContactsHelper extends HelperBase {
         submitContactCreation();
         returnToHomePage();
     }
+
+    public void selectContactByIndex(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements =
+                driver.findElements(By.cssSelector("tr.odd"));
+
+        for (WebElement element : elements) {
+            String firstName = element.getText();
+            int contactId = Integer.parseInt(element.findElement(By.tagName("input"))
+                    .getAttribute("value"));
+            ContactData contact = new ContactData().withID(contactId).withFirstName(firstName);
+            contacts.add(contact);
+        }
+
+        return contacts;
+    }
+
 }

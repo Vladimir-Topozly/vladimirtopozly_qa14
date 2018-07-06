@@ -1,7 +1,10 @@
 package com.telran.addressbook.tests;
 
+import com.telran.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class ContactDeletionTest extends TestBase {
     @Test
@@ -20,6 +23,28 @@ public class ContactDeletionTest extends TestBase {
         int after = app.getContactsHelper().GetContactCount();
 
         Assert.assertEquals(after, before - 1);
+    }
+
+    @Test
+    public void testContactDeletionByIndex() {
+        app.getNavigationHelper().goToHomePage();
+        if (!app.getContactsHelper().isThereAContact()) {
+            app.getContactsHelper().createContact();
+        }
+        List<ContactData> before = app.getContactsHelper().getContactList();
+        app.getContactsHelper().selectContactByIndex(before.size() - 1);
+        app.getContactsHelper().deleteContact();
+        app.getContactsHelper().acceptAlert();
+        app.getNavigationHelper().goToHomePage();
+        List<ContactData> after = app.getContactsHelper().getContactList();
+
+        Assert.assertEquals(after.size(), before.size() - 1);
+        before.remove(before.size() - 1);
+
+        Assert.assertEquals(before, after);
+
+        System.out.println("Before: " + before);
+        System.out.println("After: " + after);
     }
 
 

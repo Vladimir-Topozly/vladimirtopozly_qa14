@@ -1,8 +1,10 @@
 package com.telran.addressbook.model;
 
 import java.io.File;
+import java.util.Objects;
 
 public class ContactData {
+    private int contactId;
     private String firstName;
     private String lastName;
     private String title;
@@ -16,22 +18,6 @@ public class ContactData {
 
     public String getGroup() {
         return group;
-    }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", title='" + title + '\'' +
-                ", company='" + company + '\'' +
-                ", companyAddress='" + companyAddress + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", photo=" + photo +
-                ", group='" + group + '\'' +
-                '}';
     }
 
     public ContactData withGroup(String group) {
@@ -78,9 +64,39 @@ public class ContactData {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "contactId=" + contactId +
+                ", firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", title='" + title + '\'' +
+//                ", company='" + company + '\'' +
+//                ", companyAddress='" + companyAddress + '\'' +
+//                ", phone='" + phone + '\'' +
+//                ", email='" + email + '\'' +
+//                ", address='" + address + '\'' +
+//                ", photo=" + photo +
+//                ", group='" + group + '\'' +
+                '}';
+    }
+
     public ContactData withEmail(String email) {
         this.email = email;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return Objects.equals(firstName, that.firstName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName);
     }
 
     public ContactData withAddress(String address) {
@@ -118,5 +134,14 @@ public class ContactData {
 
     public String getAddress() {
         return address;
+    }
+
+    public int getContactId() {
+        return contactId;
+    }
+
+    public ContactData withID(int contactId) {
+        this.contactId = contactId;
+        return this;
     }
 }

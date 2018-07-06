@@ -72,12 +72,15 @@ public class GroupHelper extends HelperBase {
 
     public List<GroupData> getGroupList() {  // adding all groups on the page into the array
         List<GroupData> groups = new ArrayList<>();
+
         List<WebElement> elements =
                 driver.findElements(By.cssSelector("span.group"));
+
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input"))
                     .getAttribute("value"));
+
             GroupData group = new GroupData().withId(id).withName(name);
             groups.add(group);
         }
