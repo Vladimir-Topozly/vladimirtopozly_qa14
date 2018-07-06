@@ -67,17 +67,8 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "contactId=" + contactId +
-                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", title='" + title + '\'' +
-//                ", company='" + company + '\'' +
-//                ", companyAddress='" + companyAddress + '\'' +
-//                ", phone='" + phone + '\'' +
-//                ", email='" + email + '\'' +
-//                ", address='" + address + '\'' +
-//                ", photo=" + photo +
-//                ", group='" + group + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
@@ -91,16 +82,26 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstName, that.firstName);
+        return contactId == that.contactId &&
+                Objects.equals(firstName, that.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName);
+        return Objects.hash(contactId, firstName);
     }
 
     public ContactData withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public int getContactId() {
+        return contactId;
+    }
+
+    public ContactData withContactID(int contactId) {
+        this.contactId = contactId;
         return this;
     }
 
@@ -136,12 +137,5 @@ public class ContactData {
         return address;
     }
 
-    public int getContactId() {
-        return contactId;
-    }
 
-    public ContactData withID(int contactId) {
-        this.contactId = contactId;
-        return this;
-    }
 }

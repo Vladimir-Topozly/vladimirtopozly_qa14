@@ -11,11 +11,9 @@ public class GroupModificationTest extends TestBase {
     @Test
     public void testGroupModification() {
         app.getNavigationHelper().goToGroupsPage();
-
         if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup();   // check precondition whether group exists
         }
-
         List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().selectGroupByIndex(before.size() - 1);
         app.getGroupHelper().initGroupModification();
